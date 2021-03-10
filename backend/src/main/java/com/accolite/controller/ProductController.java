@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.accolite.model.Product;
+import com.accolite.model.ProductDetails;
 import com.accolite.service.ProductService;
 
 
@@ -22,7 +23,7 @@ public class ProductController {
 	@CrossOrigin
 	@SuppressWarnings("deprecation")
 	@RequestMapping(value = "/createproduct", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json") 
-	public ResponseEntity<Product> createProdict(@RequestBody Product product) throws Exception {
+	public ResponseEntity<Product> createProdict(@RequestBody ProductDetails product) throws Exception {
 		System.out.println("Product: "+ product);
 		Product response = ProductService.createProduct(product);
 		return new ResponseEntity<>(response, HttpStatus.CREATED);

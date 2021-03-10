@@ -11,12 +11,13 @@ import org.hibernate.Transaction;
 
 import com.accolite.dao.ProductDAO;
 import com.accolite.model.Product;
+import com.accolite.model.ProductDetails;
 import com.accolite.utils.Connection;
 
 public class ProductDAOImpl implements ProductDAO {
 
 	@Override
-	public Product save(Product product) {
+	public Product save(ProductDetails product) {
 		
 		
 		Session session = Connection.getSession();
@@ -25,12 +26,11 @@ public class ProductDAOImpl implements ProductDAO {
 	
 		Product productData = new Product();
 		
-		productData.setProductId(product.getProductId());
 		productData.setProductName(product.getProductName());
-		productData.setProductOnHand(product.getProductOnHand());
+		productData.setProductOnHand(0);
 		productData.setProductAvailable(product.getProductAvailable());
-		productData.setProductOutgoing(product.getProductOutgoing());
-		productData.setProductIncoming(product.getProductIncoming());
+		productData.setProductOutgoing(0);
+		productData.setProductIncoming(0);
 		productData.setProductcostPrice(product.getProductcostPrice());
 		productData.setProductSellingPrice(product.getProductSellingPrice());
 	

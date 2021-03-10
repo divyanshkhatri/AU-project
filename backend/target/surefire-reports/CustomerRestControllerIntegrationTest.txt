@@ -1,0 +1,7 @@
+-------------------------------------------------------------------------------
+Test set: CustomerRestControllerIntegrationTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in CustomerRestControllerIntegrationTest
+initializationError  Time elapsed: 0.018 s  <<< ERROR!
+java.lang.NoClassDefFoundError: Could not initialize class org.springframework.test.context.junit4.SpringRunner
+

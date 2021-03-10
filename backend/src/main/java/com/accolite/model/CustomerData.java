@@ -23,5 +23,14 @@ public class CustomerData {
 	public void setTotalCustomers(long totalCustomers) {
 		this.totalCustomers = totalCustomers;
 	}
+
+	public CustomerData(List<Customer> customers, long totalCustomers) {
+		super();
+		this.customers = customers;
+		this.totalCustomers = totalCustomers;
+	}
 	
+	public CustomerData() {
+		
+	}
 }

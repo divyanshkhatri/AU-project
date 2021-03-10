@@ -4,11 +4,12 @@ import java.util.List;
 
 import com.accolite.dao.impl.ProductDAOImpl;
 import com.accolite.model.Product;
+import com.accolite.model.ProductDetails;
 
 public class ProductService {
 	
 	
-public static Product createProduct(Product product) {
+public static Product createProduct(ProductDetails product) {
 		
 		ProductDAOImpl productDAOImpl = new ProductDAOImpl();
 		

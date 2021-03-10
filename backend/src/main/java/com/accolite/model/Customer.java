@@ -75,5 +75,20 @@ public class Customer {
 	public void setCustomerPincode(String customerPincode) {
 		this.customerPincode = customerPincode;
 	}
+
+	public Customer(int customerId, String customerName, String customerPhone, String customerEmail,
+			String customerAddress, String customerPincode) {
+		super();
+		this.customerId = customerId;
+		this.customerName = customerName;
+		this.customerPhone = customerPhone;
+		this.customerEmail = customerEmail;
+		this.customerAddress = customerAddress;
+		this.customerPincode = customerPincode;
+	}
+	
+	public Customer() {
+		
+	}
 		
 }
