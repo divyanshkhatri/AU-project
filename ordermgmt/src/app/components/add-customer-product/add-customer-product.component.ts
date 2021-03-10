@@ -25,7 +25,7 @@ export class AddCustomerProductComponent implements OnInit {
   products: String[] = [];
 
   getProductName(productId:number) {
-    return this.options.find(option => option.productId === productId)?.productName;
+    return this.options.find(option => option.productId === productId)?.productName || '';
   }
 
   ngOnInit() {

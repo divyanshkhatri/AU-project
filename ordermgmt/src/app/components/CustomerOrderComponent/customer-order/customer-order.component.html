@@ -43,13 +43,17 @@
               {{s.viewValue}}
             </mat-option>
           </mat-select> -->
-          <mat-select *ngIf="element.orderStatus == 'NotConfirmed';then content" placeholder= {{element.orderStatus}} [(value)] = 'element.orderStatus'>
-            <mat-option *ngFor="let s of statusNotConfirmed" [value]="s.value">
-              {{s.viewValue}}
-            </mat-option>
-          </mat-select>
-          <ng-template #content>
-            <mat-select [(value)] = 'element.orderStatus' placeholder= {{element.orderStatus}}>
+          <div *ngIf="element.orderStatus == 'NotConfirmed';then content else other_content">
+            <ng-template #content>
+              <mat-select placeholder= {{element.orderStatus}} [(value)] = 'element.orderStatus'>
+                <mat-option *ngFor="let s of statusNotConfirmed" [value]="s.value">
+                  {{s.viewValue}}
+                </mat-option>
+              </mat-select>
+            </ng-template>
+          </div>
+          <ng-template #other_content>
+            <mat-select *ngIf="element.orderStatus == 'Confirmed'"  [(value)] = 'element.orderStatus' placeholder= {{element.orderStatus}}>
               <mat-option *ngFor="let s of statusConfirmed" [value]="s.value">
                 {{s.viewValue}}
               </mat-option>
