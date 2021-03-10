@@ -44,7 +44,7 @@ public class OrderController {
 	}
 
 	@CrossOrigin
-	@RequestMapping(value = "/updateorderstatus", method = RequestMethod.PUT, consumes = "application/json", produces = "application/json") 
+	@RequestMapping(value = "/updateorderstatus", method = RequestMethod.PUT, consumes = "application/json", produces = "text/plain") 
 	public ResponseEntity<String> updateOrderStatus(@RequestBody CustomerOrderDetails customerOrder) throws Exception {
 		String response = CustomerOrderService.updateOrderStatus(customerOrder);
 		return new ResponseEntity<>(response, HttpStatus.CREATED);

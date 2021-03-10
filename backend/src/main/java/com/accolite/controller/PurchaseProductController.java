@@ -30,7 +30,7 @@ public class PurchaseProductController {
 	}
 	
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/getproducts/{purchaseId}", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json") 
+	@RequestMapping(value = "/getpurchaseproducts/{purchaseId}", method = RequestMethod.GET, produces = "application/json") 
 	public ResponseEntity<List<PurchaseProductDetails>> createPurchaseProduct(@PathVariable(name = "purchaseId") int purchaseId) throws Exception {
 		//System.out.println("Order: "+ order);
 		List<PurchaseProductDetails> response = PurchaseProductService.getProducts(purchaseId);
@@ -39,7 +39,7 @@ public class PurchaseProductController {
 	
 	@CrossOrigin
 	@SuppressWarnings("deprecation")
-	@RequestMapping(value = "/updateproductstatus", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE, produces = "application/json") 
+	@RequestMapping(value = "/updateproductstatus", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_UTF8_VALUE) 
 	public ResponseEntity<String> updateproductstatus(@RequestBody UpdatePurchaseStatus updatePurchaseStatus) throws Exception {
 		//System.out.println("Order: "+ order);
 		String response = PurchaseProductService.updatePurchaseStatus(updatePurchaseStatus);

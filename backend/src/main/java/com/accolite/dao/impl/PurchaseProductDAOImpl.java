@@ -315,9 +315,12 @@ public class PurchaseProductDAOImpl implements PurchaseProductDAO{
 		
 		Session session = Connection.getSession();
 		
+		System.out.println(purchaseId);
+		
 		List<PurchaseOrder> purchaseList = session.createCriteria(PurchaseOrder.class).add(Restrictions.eq("purchaseId", purchaseId)).list();
 		
-		List<PurchaseProduct> purchaseProductList = session.createCriteria(PurchaseProduct.class).add(Restrictions.eq("purchase", purchaseList.get(0).getPurchaseId())).list();
+		System.out.println(purchaseList.get(0).getPurchaseId());
+		List<PurchaseProduct> purchaseProductList = session.createCriteria(PurchaseProduct.class).add(Restrictions.eq("purchaseOrder", purchaseList.get(0))).list();
 		
 		List<PurchaseProductDetails> purchaseProductDetails = new ArrayList<>();
 		
