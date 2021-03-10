@@ -1,0 +1,79 @@
+<div style="align-content: center; margin: 4vh auto; width: 60%">
+  <h1 style="text-align: center; font-family: 'lato'; font-size: 36px">
+    Suppliers
+  </h1>
+  <div style="margin-bottom: 3.5vh; text-align: right">
+    <button mat-raised-button color="accent" (click)="openDialog()">
+      Add Suppliers
+    </button>
+  </div>
+  <div class="mat-elevation-z8">
+    <mat-table
+      matSort
+      matSortActive="id"
+      matSortDirection="desc"
+      style="border-collapse: collapse; border-radius: 30px"
+      [dataSource]="dataSource"
+    >
+      <ng-container matColumnDef="id">
+        <mat-header-cell
+          onclick="this.openDialog()"
+          mat-sort-header
+          *matHeaderCellDef
+          fxFlex = "15"
+        >
+          Supplier Id
+        </mat-header-cell>
+        <mat-cell fxFlex = "15" *matCellDef="let element">
+          {{ element.supplierId }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell mat-sort-header  fxFlex = "20" *matHeaderCellDef>
+          Supplier Name
+        </mat-header-cell>
+        <mat-cell fxFlex = "20" *matCellDef="let element">
+          {{ element.supplierName }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="email">
+        <mat-header-cell mat-sort-header *matHeaderCellDef fxFlex = "35" >
+          Supplier Email
+        </mat-header-cell>
+        <mat-cell fxFlex = "35" *matCellDef="let element">
+          {{ element.supplierEmail }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="phone">
+        <mat-header-cell mat-sort-header fxFlex = "15" *matHeaderCellDef>
+          Supplier Phone
+        </mat-header-cell>
+        <mat-cell fxFlex = "15" *matCellDef="let element">
+          {{ element.supplierPhone }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell mat-sort-header fxFlexOffset = "5" *matHeaderCellDef>
+        </mat-header-cell>
+        <mat-cell fxFlexOffset = "5" *matCellDef="let element">
+          <img (click) = "displayPurchases(element)" style = "width: 35px; height: 35px;" src = "../../assets/images/see.png" />
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 50, 100]"
+      (page)="fetchData()"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

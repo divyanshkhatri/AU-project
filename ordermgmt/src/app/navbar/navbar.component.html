@@ -1,0 +1,44 @@
+<mat-sidenav-container class="example-container">
+  <mat-sidenav #snav mode="side" class="sidenav-style">
+    <p
+      style="
+        text-align: center;
+        font-size: large;
+        font-family: 'lato';
+        margin-bottom: 4vh;
+      "
+    >
+      Menu
+    </p>
+    <p routerLink="/customers">
+      <img src="../../assets/images/customer.png" class="img-style" />
+      <span>Customers</span>
+    </p>
+    <p routerLink="/orders">
+      <img src="../../assets/images/order.png" class="img-style" />
+      <span>Orders</span>
+    </p>
+    <p routerLink="/suppliers">
+      <img src="../../assets/images/supplier.png" class="img-style" />
+      <span>Suppliers</span>
+    </p>
+    <p routerLink="/allproducts">
+      <img src="../../assets/images/supplier.png" class="img-style" />
+      <span>Products</span>
+    </p>
+  </mat-sidenav>
+
+  <mat-toolbar color="accent">
+    <button
+      mat-icon-button
+      (click)="snav.toggle()"
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span style="font-size: 20px">Order Management</span>
+    <span class="example-spacer"></span>
+  </mat-toolbar>
+  <router-outlet></router-outlet>
+</mat-sidenav-container>

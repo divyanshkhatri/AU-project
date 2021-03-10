@@ -1,0 +1,9 @@
+table {
+    width: 100%;
+    /* align-content: center; */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+

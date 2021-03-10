@@ -1,0 +1,52 @@
+<div mat-dialog-content style="text-align: center; margin-top: 20px">
+  <form [formGroup]="supplierForm" class="example-form">
+    <h1 mat-dialog-title>Add Supplier</h1>
+    <mat-form-field class="example-full-width">
+      <mat-label> Supplier Name </mat-label>
+      <input matInput type="text" formControlName="supplierName" />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label> Email </mat-label>
+      <input matInput type="email" formControlName="supplierEmail" />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Phone</mat-label>
+      <input
+        color="accent"
+        matInput
+        type="tel"
+        maxlength="10"
+        formControlName="supplierPhone"
+      />
+      <mat-hint
+        >{{ this.supplierForm.controls["supplierPhone"].value.length }} /
+        10</mat-hint
+      >
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label> Address </mat-label>
+      <input matInput type="text" formControlName="supplierAddress" />
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label> Pincode </mat-label>
+      <input matInput type="text" formControlName="supplierPincode" />
+    </mat-form-field>
+    <br />
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      mat-dialog-close
+      cdkFocusInitial
+      (click)="this.addSupplier()"
+      style="margin-bottom: 2px"
+      [disabled]="!supplierForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

@@ -1,0 +1,26 @@
+<p>dialogbox works!</p>
+  <!--<h1 mat-dialog-title>Hi</h1>
+<div mat-dialog-content>
+  <p>What's your favorite animal?</p>
+  <mat-form-field>
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="animal">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onClick()">No Thanks</button>
+  <button mat-button [mat-dialog-close]="animal" cdkFocusInitial>Ok</button>
+</div>
+<script>
+    function onClick(){
+        <h2>saved</h2>
+    }
+</script>-->
+<ol>
+<li>
+    <button mat-raised-button (click)="onCreate()">Pick one</button>
+  </li>
+  <li *ngIf="animal">
+    You chose: <i>{{animal}}</i>
+  </li>
+</ol>

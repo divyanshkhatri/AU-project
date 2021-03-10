@@ -1,0 +1,46 @@
+<div mat-dialog-content style="text-align: center; margin-top: 20px">
+  <form [formGroup]="productForm" class="example-form">
+    <h1 mat-dialog-title>Add Product</h1>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Product Id</mat-label>
+      <input matInput type="number" disabled [(value)] = 'productId' />
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <mat-label>Product Name</mat-label>
+      <input
+        type="text"
+        matInput
+        [matAutocomplete]="auto"
+        formControlName="productId"
+        [(ngModel)]="productId"
+      />
+      <mat-autocomplete
+        [displayWith]="getProductName.bind(this)"
+        #auto="matAutocomplete"
+      >
+        <mat-option *ngFor="let opt of options" [value] = "opt.productId">
+          {{ opt.productName }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <br />
+    <mat-form-field class="example-full-width">
+      <mat-label>Product Quantity</mat-label>
+      <input matInput type="number" formControlName="productQuantity" />
+    </mat-form-field>
+    <br />
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      mat-dialog-close
+      cdkFocusInitial
+      (click)="this.addProduct()"
+      style="margin-bottom: 2px"
+      [disabled]="!productForm.valid"
+    >
+      Submit
+    </button>
+  </form>
+</div>

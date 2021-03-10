@@ -1,0 +1,71 @@
+<div style="align-content: center; margin: 4vh auto; width: 90%">
+  <h1 style="text-align: center; font-family: 'lato'; margin-bottom: 6vh; font-size: 36px">
+    Product Details
+  </h1>
+  <div style = "margin-bottom: 3.5vh; text-align: right;">
+    <button mat-raised-button color="accent" (click) = 'openDialog()' >Add Products</button>
+  </div>
+  <div class="mat-elevation-z8" style = "margin-top: 2vh;">
+    <mat-table
+      matSort
+      matSortActive="id"
+      fxLayout="column"
+      matSortDirection="desc"
+      style="border-collapse: collapse; margin-top: 2vh;"
+      [dataSource]="dataSource"
+    >
+      <ng-container matColumnDef="orderId">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+          Order Id
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.orderId }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="productId">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+          Product Id
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          {{ element.productId }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="productQuantity">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+          Product Quantity
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element" >
+          {{ element.productQuantity }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="update">
+        <mat-header-cell fxFlexOffset="10" *matHeaderCellDef></mat-header-cell>
+
+          <mat-cell fxFlexOffset="10" fxFlexAlign="center" *matCellDef="let element" >
+            <button mat-raised-button color="accent" >Update Status</button>
+          </mat-cell>
+
+      </ng-container>
+
+      <ng-container matColumnDef="products">
+        <mat-header-cell fxFlexOffset="5" *matHeaderCellDef></mat-header-cell>
+
+          <mat-cell fxFlexOffset="5" fxFlexAlign="center" *matCellDef="let element" >
+            <button mat-raised-button color="accent" >Show Products</button>
+          </mat-cell>
+
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10]"
+      showFirstLastButtons
+    >
+    </mat-paginator>
+  </div>
+</div>

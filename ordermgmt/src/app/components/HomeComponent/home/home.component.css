@@ -1,0 +1,16 @@
+h1 {
+  font-family: 'lato';
+  text-align: center;
+  height: fit-content;
+  margin-top: 30vh;
+  font-size: 60px;
+}
+
+.typed {
+  font-family: 'lato';
+  font-weight: bolder;
+  font-size: 35px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 10vh;
+}

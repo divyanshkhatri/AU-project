@@ -1,0 +1,78 @@
+<div style="align-content: center; margin: 4vh auto; width: 60%">
+  <h1 style="text-align: center; font-family: 'lato'; font-size: 36px">
+    Products
+  </h1>
+  <div style="margin-bottom: 3.5vh; text-align: right">
+    <button mat-raised-button color="accent" (click)="openDialog()">
+      Add Products
+    </button>
+  </div>
+  <div class="mat-elevation-z8">
+    <mat-table
+      matSort
+      matSortActive="id"
+      matSortDirection="desc"
+      style="border-collapse: collapse; border-radius: 30px"
+      [dataSource]="dataSource"
+    >
+      <ng-container matColumnDef="id">
+        <mat-header-cell
+          onclick="this.openDialog()"
+          mat-sort-header
+          *matHeaderCellDef
+        >
+          Product Id
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.productId }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+          Product Name
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.productName }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="sp">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+          Selling Price
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.productSellingPrice }}
+        </mat-cell>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="cp">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+          Cost Price
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.productcostPrice }}
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="available">
+        <mat-header-cell mat-sort-header *matHeaderCellDef>
+          Product Available
+        </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          {{ element.productAvailable }}
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+    <mat-paginator
+      [pageSizeOptions]="[5, 10, 25, 50, 100]"
+      (page)="fetchData()"
+      showFirstLastButtons
+    ></mat-paginator>
+  </div>
+</div>

@@ -1,0 +1,46 @@
+.example-container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #eee;
+}
+
+h1 {
+  font-family: 'lato';
+}
+
+table {
+  align-items: center;
+}
+
+.img-style {
+  width: 30px;
+  height: 30px;
+  padding-top: 0vh;
+  /* margin-top: -0.5vh; */
+}
+
+.sidenav-style {
+  width: 10vw;
+  padding-top: 3vh;
+}
+
+span {
+  /* padding-top: 1.6h; */
+  font-family: 'lato';
+  padding-left: 0.9vw;
+  vertical-align: super;
+  /* border: 2px solid black; */
+  font-size: 16px;
+}
+
+p {
+  /* padding-top: 1.2vh; */
+  /* border: 2px black solid; */
+  margin-left: 0.5vw;
+  text-align: left;
+  width: 9vw;
+  height: fit-content;
+}

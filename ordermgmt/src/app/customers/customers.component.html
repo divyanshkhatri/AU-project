@@ -1,0 +1,40 @@
+
+<div style="align-content: center; margin:4vh auto; width: 60%;">
+  <h1 style = "text-align: center; font-family: 'lato'; font-size: 36px;">Customers</h1>
+  <div style = "margin-bottom: 3.5vh; text-align: right;">
+    <button mat-raised-button color="accent" (click) = 'openDialog()' >Add Customers</button>
+  </div>
+  <div class = "mat-elevation-z8">
+    <mat-table matSort matSortActive = "id" fxLayout="column" matSortDirection = "desc" style = "border-collapse: collapse; border-radius: 30px;" [dataSource]="dataSource">
+      <ng-container matColumnDef="id" >
+        <mat-header-cell fxFlex="20" mat-sort-header *matHeaderCellDef> Customer Id </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxFlex="20" > {{element.customerId}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell mat-sort-header fxFlex="20" *matHeaderCellDef> Customer Name </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxFlex="20" > {{element.customerName}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="email">
+        <mat-header-cell mat-sort-header fxFlex="30" *matHeaderCellDef> Customer Email </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxFlex="30"> {{element.customerEmail}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="phone">
+        <mat-header-cell mat-sort-header fxFlex = "20" *matHeaderCellDef> Customer Phone </mat-header-cell>
+        <mat-cell *matCellDef="let element" fxFlex = "20"> {{element.customerPhone}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="details">
+        <mat-header-cell *matHeaderCellDef fxFlex = "10"></mat-header-cell>
+        <mat-cell *matCellDef="let element" fxFlex = "10"><img (click) = "clicked(element)" style = "width: 30px; float: right;" src = "../../assets/images/see.png" ></mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator [pageSizeOptions]="[5, 10]" (page) = "fetchData()" showFirstLastButtons ></mat-paginator>
+  </div>
+</div>
+

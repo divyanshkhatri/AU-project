@@ -1,0 +1,56 @@
+<div mat-dialog-content style = "text-align: center; margin-top: 20px;">
+  <form [formGroup]="custForm" class  = "example-form">
+    <h1 mat-dialog-title>Add Customers</h1>
+    <mat-form-field class = "example-full-width">
+      <mat-label>Customer Id</mat-label>
+      <input  matInput type="text" formControlName="customerId" />
+    </mat-form-field>
+    <br>
+    <mat-form-field class = "example-full-width">
+      <mat-label>
+        Customer Name
+      </mat-label>
+      <input matInput type="text" formControlName="customerName" />
+    </mat-form-field>
+    <br>
+    <mat-form-field class = "example-full-width">
+      <mat-label>
+        Email
+      </mat-label>
+        <input matInput type="email" formControlName="customerEmail" />
+    </mat-form-field>
+    <br>
+    <mat-form-field class = "example-full-width">
+      <mat-label>Phone</mat-label>
+      <input color = "accent" matInput type="tel"  maxlength="10" formControlName= "customerPhone" />
+      <mat-hint>{{this.custForm.controls['customerPhone'].value.length}} / 10</mat-hint>
+    </mat-form-field>
+    <br />
+    <mat-form-field class = "example-full-width">
+      <mat-label>
+        Address
+      </mat-label>
+      <input matInput type="text" formControlName="customerAddress" />
+    </mat-form-field>
+    <br />
+    <mat-form-field class = "example-full-width">
+      <mat-label>
+        Pincode
+      </mat-label>
+      <input matInput type="text" formControlName="customerPincode" />
+    </mat-form-field>
+    <br>
+    <button
+      mat-raised-button
+      color="accent"
+      type="submit"
+      mat-dialog-close
+      cdkFocusInitial
+      (click) = "this.addCustomer()"
+      style = "margin-bottom:2px"
+      [disabled]="!custForm.valid"
+      >
+      Submit
+    </button>
+  </form>
+</div>
